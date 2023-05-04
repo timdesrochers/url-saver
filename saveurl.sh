@@ -32,7 +32,7 @@ while true;
 ##
 # Specify readline prompt string & style.
 #
-	read -p "set_color green; \
+	read -p "set_color --bold bryellow; \
 		printf 'Enter URL'; \
 		set_color normal; \
 		printf ' > '" input;

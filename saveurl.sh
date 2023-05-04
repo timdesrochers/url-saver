@@ -8,6 +8,7 @@ while true;
 	if test "$firstRun" != "no";
 		clear;
 		echo 'Pass "q" to quit.'; 
+		set_color --bold white; 
 		figlet -f smslant "URL Saver";
 	end;
 ##	
@@ -48,18 +49,22 @@ while true;
 ##
 # Write/append input line to saved-urls.txt
 #
-	echo $input >> ~/saved-urls.txt;
-
+	echo $input >> ~/bookmarks/saved-urls.txt;
+##
+# Append input line along with date/timestamp to by-date.tsv
+#
+	printf $(date +%Y%m%d\t%H:%M:%S)\t'"'$input'"'\r\n >> ~/bookmarks/by-date.tsv
 ##	
 # Read last line of saved-urls into $last to verify write
 #
-	set last "$(tac ~/saved-urls.txt | head -n 1)";
+	set last "$(tac ~/bookmarks/saved-urls.txt | head -n 1)";
 
 ##
 # Clear and refresh console for output
 #
 	clear;	
-	set_color --bold white; echo $(date);
+	set_color --bold white;
+	echo $(date);
 	figlet -f smslant "URL Saver";
 	set_color --bold blue; printf "Entered this: ";
 	set_color --italics normal; printf $input\n;
@@ -67,7 +72,7 @@ while true;
 	set_color --italics normal; printf $last\n;
 	if test "$last" = "$input";
 		set_color --bold green; printf "Robot says: ";
-		set_color --italics normal;
+		set_color --bold normal;
 		##
 		# Choose a random success message, decode, and print.
 		#

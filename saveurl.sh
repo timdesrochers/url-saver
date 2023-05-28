@@ -9,7 +9,7 @@ while true;
 		clear;
 		echo 'Pass "q" to quit.'; 
 		set_color --bold white; 
-		figlet -f smslant "URL Saver";
+		echo "ICBfXyAgX19fX18gIF9fICAgICBfX19fICAgICAgICAgICAgICAgICAKIC8gLyAvIC8gXyBcLyAvICAgIC8gX18vX18gX18gIF9fX19fIF9fX18KLyAvXy8gLyAsIF8vIC9fXyAgX1wgXC8gXyBgLyB8LyAvIC1fKSBfXy8KXF9fX18vXy98Xy9fX19fLyAvX19fL1xfLF8vfF9fXy9cX18vXy8gICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAK" | base64 -d;
 	end;
 ##	
 # Load list of "success" messages;
@@ -49,11 +49,11 @@ while true;
 ##
 # Write/append input line to saved-urls.txt
 #
-	echo $input >> ~/bookmarks/saved-urls.txt;
+	echo $input >> ~/Documents/web-archives/url-saver/saved-urls.txt;
 ##
 # Append input line along with date/timestamp to by-date.tsv
 #
-	printf $(date "+%Y%t%m%t%d%t%H:%M:%S%t%z%t%A")\t'"'$input'"'\t$(uuidgen)\r\n >> ~/bookmarks/by-date.tsv
+	printf $(date "+%Y%t%m%t%d%t%H:%M:%S%t%z%t%A")\t'"'$input'"'\t$(uuidgen)\r\n >> ~/Documents/web-archives/url-saver/by-date.tsv ;
 ##	
 # Read last line of saved-urls into $last to verify write
 #

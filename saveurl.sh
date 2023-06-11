@@ -57,7 +57,7 @@ while true;
 ##	
 # Read last line of saved-urls into $last to verify write
 #
-	set last "$(tac ~/bookmarks/saved-urls.txt | head -n 1)";
+	set last "$(tac ~/Documents/web-archives/url-saver/saved-urls.txt | head -n 1)";
 
 ##
 # Clear and refresh console for output
